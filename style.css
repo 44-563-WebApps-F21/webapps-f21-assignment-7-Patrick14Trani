@@ -1,0 +1,6 @@
+div.row p{
+    background-color: aliceblue;
+    outline: black;
+    outline-width: 2px;
+    outline-style: solid;
+}
