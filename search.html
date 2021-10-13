@@ -27,39 +27,68 @@
     </div>
     <div class="container">
       <div class="row">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
+        <img id="11" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="12" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="13" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="14" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="15" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="16" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
       </div>
       <div class="row">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
+        <img id="21" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="22" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="23" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="24" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="25" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="26" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
       </div>
       <div class="row">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
+        <img id="31" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="32" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="33" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="34" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="35" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="36" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
       </div>
       <div class="row">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
-        <img src="Images/grass.png" class="col-sm" width="100" height="100">
+        <img id="41" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="42" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="43" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="44" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="45" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
+        <img id="46" src="Images/grass.png" class="col-sm" width="100" height="100" onclick="check(this.id)">
       </div>
 
     </div>
+
+    <script>
+      let tries_count = 0
+      let animalLocation = 13
+      function check(x)
+      {
+        let im = document.getElementById(x);
+        if(x == animalLocation){
+          im.src = "Images/animal.png"
+        } else {
+          im.src = "Images/dirt.jpg"
+          distance(x, animalLocation)
+        }
+      }
+
+      function distance(pos1, pos2)
+      {
+          let distance = 0
+          tries_count++
+          let x = Math.abs(pos1 % 10 - pos2 % 10)
+          let y = Math.abs(Math.floor(pos1 / 10) - Math.floor(pos2 / 10))
+
+          distance = Math.max(x, y)
+          
+          document.getElementById("tries").innerHTML = `Number of Tries: ${tries_count}`
+          document.getElementById("distance").innerHTML = `Distance is ${distance}`
+
+      }
+    </script>
 
 </body>
 
