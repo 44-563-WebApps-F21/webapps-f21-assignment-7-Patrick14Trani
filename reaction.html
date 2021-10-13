@@ -15,19 +15,34 @@
   <p id="target">Your Time</p>
   <p id="count">Count</p>
 
-  <button>Start Timer</button>
+  <button onclick="startTime()">Start Timer</button>
   <button onclick="recordReact()">React</button>
   
   <script>
-  let myTime = 0
+  let myTime = undefined
   
-  function startTime() {
-    setTimeout(function(){
-      document.getElementById('target').style.color = "red"
-    }, 3000)
+  function startTime() 
+  {
+    myTime = undefined
+    for(let i = 0; i < 4; i++){
+      setTimeout(() => {
+        document.getElementById("count").innerHTML = `${i}` 
+      }, (3-i)*1000);
+    }
+    setTimeout(() => {
+      if(myTime === undefined){
+        document.getElementById("target").innerHTML = "To Slow"
+      }else{
+        let buttonTime = Date.now()
+        let difference = buttonTime - myTime
+        document.getElementById("target").innerHTML = `Time was: ${difference}`
+      }
+    }, 3000);
   }
 
-  function recordReact() {
+
+  function recordReact() 
+  {
     myTime = Date.now()
     console.log(myTime)
   }
